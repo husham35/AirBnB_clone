@@ -97,7 +97,7 @@ class TestHBNBCommandExit(unittest.TestCase):
 class TestHBNBCommandCreate(unittest.TestCase):
     """Unittests for testing create from the HBNB command interpreter."""
 
-
+    @classmethod
     def setUp(self):
         try:
             os.rename("file.json", "tmp")
@@ -105,7 +105,7 @@ class TestHBNBCommandCreate(unittest.TestCase):
             pass
         FileStorage.__objects = {}
 
-
+    @classmethod
     def tearDown(self):
         try:
             os.remove("file.json")
@@ -170,7 +170,7 @@ class TestHBNBCommandCreate(unittest.TestCase):
 class TestHBNBCommandShow(unittest.TestCase):
     """Unittests for testing show from the HBNB command interpreter"""
 
-
+    @classmethod
     def setUp(self):
         try:
             os.rename("file.json", "tmp")
@@ -178,7 +178,7 @@ class TestHBNBCommandShow(unittest.TestCase):
             pass
         FileStorage.__objects = {}
 
-
+    @classmethod
     def tearDown(self):
         try:
             os.remove("file.json")
@@ -365,7 +365,7 @@ class TestHBNBCommandShow(unittest.TestCase):
 class TestHBNBCommandDestroy(unittest.TestCase):
     """Unittests for testing destroy from the HBNB command interpreter."""
 
-
+    @classmethod
     def setUp(self):
         try:
             os.rename("file.json", "tmp")
@@ -373,7 +373,7 @@ class TestHBNBCommandDestroy(unittest.TestCase):
             pass
         FileStorage.__objects = {}
 
-
+    @classmethod
     def tearDown(self):
         try:
             os.remove("file.json")
@@ -616,7 +616,7 @@ class TestHBNBCommandDestroy(unittest.TestCase):
 class TestHBNBCommandAll(unittest.TestCase):
     """Unittests for testing all of the HBNB command interpreter."""
 
-
+    @classmethod
     def setUp(self):
         try:
             os.rename("file.json", "tmp")
@@ -624,7 +624,7 @@ class TestHBNBCommandAll(unittest.TestCase):
             pass
         FileStorage.__objects = {}
 
-
+    @classmethod
     def tearDown(self):
         try:
             os.remove("file.json")
@@ -754,7 +754,7 @@ class TestHBNBCommandUpdate(unittest.TestCase):
             pass
         FileStorage.__objects = {}
 
-
+    @classmethod
     def tearDown(self):
         try:
             os.remove("file.json")
@@ -932,6 +932,7 @@ class TestHBNBCommandUpdate(unittest.TestCase):
             test_cmd = "BaseModel.update({})".format(test_id)
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd(test_cmd))
+            # print(f">>>>>>>>>>>>>>>>>>{test_id}")
             self.assertEqual(correct, output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create User"))
