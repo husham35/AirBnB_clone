@@ -58,10 +58,6 @@ class FileStorage:
         }
         with open(type(self).__file_path, mode="w", encoding="utf-8") as file:
             json.dump(objs, file)
-        #
-        # with open(FileStorage.__file_path, "w", encoding="utf-8") as fsa:
-        #             dsa = {ksa: vsa.to_dict() for ksa, vsa in FileStorage.__objects.items()}
-        #             json.dump(dsa, fsa)
 
     def reload(self):
         """
