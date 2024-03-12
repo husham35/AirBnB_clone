@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """Defines unittests for console.py.
 Unittest classes:
-	TestHBNBCommandPrompt
-	TestHBNBCommandHelp
-	TestHBNBCommandExit
-	TestHBNBCommandCreate
-	TestHBNBCommandShow
-	TestHBNBCommandDestroy
-	TestHBNBCommandAll
-	TestHBNBCommandUpdate
-	TestHBNBCommandCount
+    TestHBNBCommandPrompt
+    TestHBNBCommandHelp
+    TestHBNBCommandExit
+    TestHBNBCommandCreate
+    TestHBNBCommandShow
+    TestHBNBCommandDestroy
+    TestHBNBCommandAll
+    TestHBNBCommandUpdate
+    TestHBNBCommandCount
 """
 import os
 import unittest

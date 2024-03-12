@@ -7,9 +7,9 @@ from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-	"""
-	Definition of the amenity class
-	Attributes:
-		name: (str) amenity name
-	"""
-	name = ""
+    """
+    Definition of the amenity class
+    Attributes:
+    name: (str) amenity name
+    """
+    name = ""

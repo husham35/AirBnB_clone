@@ -7,9 +7,9 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel):
-	"""
-	Definition of State class
-	Attributes:
-		name: (str) name of state
-	"""
-	name = ""
+    """
+    Definition of State class
+    Attributes:
+        name: (str) name of state
+    """
+    name = ""

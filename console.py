@@ -228,26 +228,24 @@ class HBNBCommand(cmd.Cmd):
             elif comd.startswith("update"):
                 args = comd.split("(")
                 comd = args[0]
-                curly_index = args[1].find("{")
-                obj_id = args[1][:curly_index].strip(', ').strip('"')
-                if not obj_id or args[1] == ")":  # or curly_index == -1:
+                curly_idx = args[1].find("{")
+                obj_id = args[1][:curly_idx].strip(', ').strip('"')
+                if not obj_id or args[1] == ")":
                     print("** instance id missing **")
                 elif not args[1].startswith('"') and '"' not in args[1]:
                     print("** no instance found **")
                 else:
-                    dict_args = args[1][curly_index:].split(")")
-                    if dict_args[0].startswith('{') and dict_args[0].endswith("}"):
-                        attr_dict = eval(dict_args[0])
+                    d_args = args[1][curly_idx:].split(")")
+                    if d_args[0].startswith('{') and d_args[0].endswith("}"):
+                        attr_dict = eval(d_args[0])
                         for key, value in attr_dict.items():
                             self.do_update(f"{cls} {obj_id} {key} {value}")
                     else:
-                        attr_name = dict_args[1].strip('"')
-                        attr_value = dict_args[2].strip('"')
-                        self.do_update(f"{cls} {obj_id} {attr_name} {attr_value}")
+                        attr_nam = d_args[1].strip('"')
+                        attr_val = d_args[2].strip('"')
+                        self.do_update(f"{cls} {obj_id} {attr_nam} {attr_val}")
         except IndexError:
             print("Invalid!")
-
-
 
 
 if __name__ == '__main__':
